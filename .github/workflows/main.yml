@@ -1,0 +1,13 @@
+name: GitHub Actions
+env:
+  FILENAME: hello-server
+on: [push]
+jobs:
+  First_Job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build em Linux
+      run: go build ${{ env.FILE_NAME }}.go
+
+    - name: Build em Windows
+      run: GOOS=windows GOARCH=amd64 go build ${{ env.FILE_NAME }}.go
