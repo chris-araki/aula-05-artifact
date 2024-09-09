@@ -1,7 +1,6 @@
 name: Go Hello-Server
 
-env:
-  FILE_NAME: hello-server
+
 
 on:
   push:
@@ -12,8 +11,11 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    env:
+      FILE_NAME: hello-server
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
   
       - name: Set up Go
         uses: actions/setup-go@v5.0.2
